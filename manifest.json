@@ -6,7 +6,11 @@
     "permissions": [
         "activeTab"
     ],
-    "background": {
-        "service_worker": "background.js"
-    }
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "run_at": "document_idle",
+            "js": ["bundle.js"]
+        }
+    ]
 }
