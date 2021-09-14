@@ -1,0 +1,1 @@
+tsc && browserify Scripts/highlight.js -o bundle.js

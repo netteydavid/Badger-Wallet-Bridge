@@ -1,0 +1,16 @@
+{
+    "name": "Badger - Bitcoin Wallet Bridge",
+    "description": "",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "run_at": "document_idle",
+            "js": ["bundle.js"]
+        }
+    ]
+}
