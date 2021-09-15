@@ -1,21 +1,9 @@
 import * as $ from "jquery"
 
-const target: string = "Google";
-const replacement: string = "Frugal";
+const addressFormat: RegExp = /\b((1|3|bc)[a-z0-9]{13,73})/gi;
+const replacement: string = `<span class='badgerAddr'>$1</span>`;
 
-replacer(`p:contains('${target}')`);
-replacer(`b:contains('${target}')`);
-replacer(`i:contains('${target}')`);
-replacer(`:header:contains('${target}')`);
-replacer(`td:contains('${target}')`);
-replacer(`th:contains('${target}')`);
-replacer(`div:contains('${target}')`);
-replacer(`a:contains('${target}')`);
-replacer(`span:contains('${target}')`);
-replacer(`li:contains('${target}')`);
-replacer(`ol:contains('${target}')`);
-replacer(`dd:contains('${target}')`);
-replacer(`dt:contains('${target}')`);
+replacer("p,b,i,:header,td,th,a,span,li,ol,dd,dt,div");
 
 function replacer(elements: string){
     var children = $(elements);
@@ -24,7 +12,7 @@ function replacer(elements: string){
         if (element != null){
             let innerHtml: string = element.html();
             if (innerHtml != null && innerHtml != ""){
-                element.html(innerHtml.replace(target, replacement));
+                element.html(innerHtml.replace(addressFormat, replacement));
             }
         }
     }

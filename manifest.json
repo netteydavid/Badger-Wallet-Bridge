@@ -10,7 +10,8 @@
         {
             "matches": ["http://*/*", "https://*/*"],
             "run_at": "document_idle",
-            "js": ["bundle.js"]
+            "js": ["bundle.js"],
+            "css": ["Scripts/highlight.css"]
         }
     ]
 }
