@@ -1,9 +1,9 @@
 import * as $ from "jquery"
 
 const addressFormat: RegExp = /\b((1|3|bc)[a-z0-9]{13,73})/gi;
-const replacement: string = `<span class='badgerAddr'>$1</span>`;
+const replacement: string = `<span class='badgerAddr'><a href='bitcoin:$1'>$1</a></span>`;
 
-replacer("p,b,i,:header,td,th,a,span,li,ol,dd,dt,div");
+replacer("p,b,i,:header,td,th,span,li,ol,dd,dt,div");
 
 function replacer(elements: string){
     var children = $(elements);
